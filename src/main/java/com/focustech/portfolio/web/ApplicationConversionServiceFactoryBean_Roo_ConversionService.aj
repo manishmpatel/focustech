@@ -21,7 +21,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Portfolio, String> ApplicationConversionServiceFactoryBean.getPortfolioToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.focustech.portfolio.domain.Portfolio, java.lang.String>() {
             public String convert(Portfolio portfolio) {
-                return new StringBuilder().append(portfolio.getTicker()).append(' ').append(portfolio.getCurrent_price()).append(' ').append(portfolio.getPurchase_price()).append(' ').append(portfolio.getQuantity()).toString();
+                return new StringBuilder().append(portfolio.getTicker()).append(' ').append(portfolio.getCurrent_price()).append(' ').append(portfolio.getQuantity()).toString();
             }
         };
     }

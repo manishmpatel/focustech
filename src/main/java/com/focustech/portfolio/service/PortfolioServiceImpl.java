@@ -1,15 +1,14 @@
 package com.focustech.portfolio.service;
 
 import com.focustech.portfolio.domain.Portfolio;
+import com.focustech.portfolio.domain.PortfolioTotal;
 import com.csvreader.CsvReader;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -22,11 +21,19 @@ import org.apache.http.HttpStatus;
 public class PortfolioServiceImpl implements PortfolioService {
 
 	public void savePortfolio(Portfolio portfolio) {
-
+		portfolio.setTicker(portfolio.getTicker().toUpperCase());
 		portfolio.persist();
 
 	}
-
+	public PortfolioTotal getPortfolioTotal(List<Portfolio> portfoliolist) {
+		float pTotal = 0;
+		for (Portfolio portfolio : portfoliolist) {
+			pTotal += portfolio.getCurrent_price() * portfolio.getQuantity();
+		}
+		PortfolioTotal t = new PortfolioTotal();
+		t.setPortfolio_total(pTotal);
+		return t;
+	}
 	public void getCurrentPrices(List<Portfolio> portfoliolist) {
 
 		// creating the request URI

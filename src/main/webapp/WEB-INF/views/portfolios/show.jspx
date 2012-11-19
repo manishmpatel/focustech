@@ -3,9 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_focustech_portfolio_domain_Portfolio" object="${portfolio}" path="/portfolios" z="fy1Dt4dyq1OKIu8ynmR+7RQDILM=">
-        <field:display field="current_price" id="s_com_focustech_portfolio_domain_Portfolio_current_price" object="${portfolio}" z="5GX7L18F9muhkLRWMeRx8waRPVs="/>
-        <field:display field="purchase_price" id="s_com_focustech_portfolio_domain_Portfolio_purchase_price" object="${portfolio}" z="bTqbJ28FMhvkaHdmssy4l/cCecE="/>
         <field:display field="quantity" id="s_com_focustech_portfolio_domain_Portfolio_quantity" object="${portfolio}" z="EmDh9rT86dIzZ9Vbcw1m+aihBy4="/>
         <field:display field="ticker" id="s_com_focustech_portfolio_domain_Portfolio_ticker" object="${portfolio}" z="MK0GLA0yr1CiRYOXv2Pm2FmZ000="/>
+        <field:display field="current_price" id="s_com_focustech_portfolio_domain_Portfolio_current_price" object="${portfolio}" z="5GX7L18F9muhkLRWMeRx8waRPVs="/>
     </page:show>
 </div>

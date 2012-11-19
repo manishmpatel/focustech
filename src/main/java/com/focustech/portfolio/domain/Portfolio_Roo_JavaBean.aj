@@ -23,14 +23,6 @@ privileged aspect Portfolio_Roo_JavaBean {
         this.current_price = current_price;
     }
     
-    public double Portfolio.getPurchase_price() {
-        return this.purchase_price;
-    }
-    
-    public void Portfolio.setPurchase_price(double purchase_price) {
-        this.purchase_price = purchase_price;
-    }
-    
     public int Portfolio.getQuantity() {
         return this.quantity;
     }

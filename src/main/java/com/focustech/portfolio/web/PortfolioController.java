@@ -1,8 +1,11 @@
 package com.focustech.portfolio.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.focustech.portfolio.domain.Portfolio;
+import com.focustech.portfolio.domain.PortfolioTotal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
@@ -42,8 +45,15 @@ public class PortfolioController {
             float nrOfPages = (float) portfolioService.countAllPortfolios() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("portfolios", portfolioService.findAllPortfolios());
+        	List<Portfolio> portfoliolist = portfolioService.findAllPortfolios();
+            uiModel.addAttribute("portfolios", portfoliolist);
+        	portfolioService.getCurrentPrices(portfoliolist);
         }
+        List<Portfolio> portfoliolist = portfolioService.findAllPortfolios();
+        PortfolioTotal portfolioTotal = portfolioService.getPortfolioTotal(portfoliolist);
+       
+        
+        uiModel.addAttribute("portfolioTotal",portfolioTotal);
         return "portfolios/list";
     }
 }

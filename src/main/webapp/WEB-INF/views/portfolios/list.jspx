@@ -5,9 +5,10 @@
     <page:list id="pl_com_focustech_portfolio_domain_Portfolio" items="${portfolios}" z="Az4qvoM1LEp99QVLTnK21T65JSw=">
         <table:table data="${portfolios}" id="l_com_focustech_portfolio_domain_Portfolio" path="/portfolios" z="ZOdcnnrV3S2w0M4seIUt2JySzOE=">
             <table:column id="c_com_focustech_portfolio_domain_Portfolio_current_price" property="current_price" z="65UI26eONWJYlpCeoxzbX15Yu/o="/>
-            <table:column id="c_com_focustech_portfolio_domain_Portfolio_purchase_price" property="purchase_price" z="Ca6GvVsxX4Caq2kp/AxOZsi95tg="/>
             <table:column id="c_com_focustech_portfolio_domain_Portfolio_quantity" property="quantity" z="IfIDxxWX1BtsdPtc4vEKidmse3I="/>
             <table:column id="c_com_focustech_portfolio_domain_Portfolio_ticker" property="ticker" z="6f66d+7VROxxz0rbgpzR2ys56aI="/>
         </table:table>
+     <p>
+		The value of your holdings =  ${portfolioTotal.getPortfolio_total()}  </p>
     </page:list>
 </div>

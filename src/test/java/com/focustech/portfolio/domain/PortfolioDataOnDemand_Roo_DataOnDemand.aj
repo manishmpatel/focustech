@@ -29,22 +29,13 @@ privileged aspect PortfolioDataOnDemand_Roo_DataOnDemand {
     
     public Portfolio PortfolioDataOnDemand.getNewTransientPortfolio(int index) {
         Portfolio obj = new Portfolio();
-        setPurchase_price(obj, index);
         setQuantity(obj, index);
         setTicker(obj, index);
         return obj;
     }
     
-    public void PortfolioDataOnDemand.setPurchase_price(Portfolio obj, int index) {
-        double purchase_price = new Integer(index).doubleValue();
-        obj.setPurchase_price(purchase_price);
-    }
-    
     public void PortfolioDataOnDemand.setQuantity(Portfolio obj, int index) {
         int quantity = index;
-        if (quantity < 1) {
-            quantity = 1;
-        }
         obj.setQuantity(quantity);
     }
     
