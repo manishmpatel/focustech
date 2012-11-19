@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_focustech_portfolio_domain_Portfolio" object="${portfolio}" path="/portfolios" z="fy1Dt4dyq1OKIu8ynmR+7RQDILM=">
+        <field:display field="current_price" id="s_com_focustech_portfolio_domain_Portfolio_current_price" object="${portfolio}" z="5GX7L18F9muhkLRWMeRx8waRPVs="/>
+        <field:display field="purchase_price" id="s_com_focustech_portfolio_domain_Portfolio_purchase_price" object="${portfolio}" z="bTqbJ28FMhvkaHdmssy4l/cCecE="/>
+        <field:display field="quantity" id="s_com_focustech_portfolio_domain_Portfolio_quantity" object="${portfolio}" z="EmDh9rT86dIzZ9Vbcw1m+aihBy4="/>
+        <field:display field="ticker" id="s_com_focustech_portfolio_domain_Portfolio_ticker" object="${portfolio}" z="MK0GLA0yr1CiRYOXv2Pm2FmZ000="/>
+    </page:show>
+</div>
