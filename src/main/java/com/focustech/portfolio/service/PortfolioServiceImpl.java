@@ -22,9 +22,12 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	public void savePortfolio(Portfolio portfolio) {
 		portfolio.setTicker(portfolio.getTicker().toUpperCase());
+		double d = getCurrentPrice(portfolio.getTicker());
+		portfolio.setCurrent_price(d);
 		portfolio.persist();
 
 	}
+
 	public PortfolioTotal getPortfolioTotal(List<Portfolio> portfoliolist) {
 		float pTotal = 0;
 		for (Portfolio portfolio : portfoliolist) {
@@ -34,6 +37,30 @@ public class PortfolioServiceImpl implements PortfolioService {
 		t.setPortfolio_total(pTotal);
 		return t;
 	}
+
+	public double getCurrentPrice(String ticker) {
+		String uri = buildURI(ticker);
+		// doing the call
+		String responseBody = "";
+		try {
+			responseBody = doCall(uri);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		// parse results
+		try {
+			HashMap h = extractValues(responseBody);
+
+			String price = (String) h.get(ticker.toUpperCase());
+			return (Double.parseDouble(price));
+
+		} catch (IOException e) {
+
+		}
+		return 0;
+	}
+
 	public void getCurrentPrices(List<Portfolio> portfoliolist) {
 
 		// creating the request URI
@@ -60,7 +87,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 			}
 
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}
 
 	}
@@ -135,6 +162,16 @@ public class PortfolioServiceImpl implements PortfolioService {
 		uri.append("&f=sl1");
 
 		return uri.toString();
+	}
+
+	private String buildURI(String ticker) {
+		StringBuilder uri = new StringBuilder();
+		uri.append("http://finance.yahoo.com/d/quotes.csv");
+		uri.append("?s=");
+		uri.append(ticker);
+		uri.append("&f=sl1");
+		return uri.toString();
+
 	}
 
 }

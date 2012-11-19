@@ -11,4 +11,5 @@ import com.focustech.portfolio.domain.PortfolioTotal;
 public interface PortfolioService {
 	void getCurrentPrices(List<Portfolio> portfoliolist);
 	PortfolioTotal getPortfolioTotal(List<Portfolio> portfoliolist);
+	double getCurrentPrice(String ticker);
 }

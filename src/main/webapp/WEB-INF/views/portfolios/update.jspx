@@ -3,8 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_focustech_portfolio_domain_Portfolio" modelAttribute="portfolio" path="/portfolios" versionField="Version" z="NUJLZbnReRepxuB/zo5t4kiCyZU=">
+        <field:input field="quantity" id="c_com_focustech_portfolio_domain_Portfolio_quantity" min="1" required="true" z="WKVKMjfXShNrYp2tCyNKtj3ruME="/>
+        <field:input field="ticker" id="c_com_focustech_portfolio_domain_Portfolio_ticker" required="true" z="n1AuHDJVNTuk+wbMnI/8pUx8YZA="/>
         <field:input field="current_price" id="c_com_focustech_portfolio_domain_Portfolio_current_price" z="AxsmdMw85vXLdO0rIeySb8heT64="/>
-        <field:input field="quantity" id="c_com_focustech_portfolio_domain_Portfolio_quantity" required="true" z="vaHDY+7B4nssCIE7vbGrl33tTmg="/>
-        <field:input field="ticker" id="c_com_focustech_portfolio_domain_Portfolio_ticker" required="true" validationRegex="\b([A-Z]{1,4}(.)?([A-Z]{1,2}" z="RkVx+Vk19PBgmD95K1g4s+dg2ek="/>
     </form:update>
 </div>

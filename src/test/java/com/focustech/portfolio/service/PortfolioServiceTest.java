@@ -24,5 +24,13 @@ public class PortfolioServiceTest {
 		if (p.getCurrent_price() > 0)
 			assert true;
 	}
+	@Test
+	public void testGetCurrentPrice() {
+		String s = "AAPL";
+		PortfolioServiceImpl pService = new PortfolioServiceImpl();
+		double d = pService.getCurrentPrice(s);
+		if (d>0)
+			assert true;
+	}
 
 }

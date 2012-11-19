@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.ObjectError;
 
 @RequestMapping("/portfolios")
 @Controller
@@ -24,7 +25,12 @@ public class PortfolioController {
 
 	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String create(@Valid Portfolio portfolio, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
+        //check if the ticker is valid
+		
+		double d = portfolioService.getCurrentPrice(portfolio.getTicker().toUpperCase());
+		if (d<=0) 
+			bindingResult.addError(new ObjectError("portfolio","Ticker is invalid"));
+		if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, portfolio);
             return "portfolios/create";
         }

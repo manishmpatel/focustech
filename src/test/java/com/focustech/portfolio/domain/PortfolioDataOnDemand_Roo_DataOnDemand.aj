@@ -36,6 +36,9 @@ privileged aspect PortfolioDataOnDemand_Roo_DataOnDemand {
     
     public void PortfolioDataOnDemand.setQuantity(Portfolio obj, int index) {
         int quantity = index;
+        if (quantity < 1) {
+            quantity = 1;
+        }
         obj.setQuantity(quantity);
     }
     
