@@ -5,6 +5,5 @@
     <form:update id="fu_com_focustech_portfolio_domain_Portfolio" modelAttribute="portfolio" path="/portfolios" versionField="Version" z="NUJLZbnReRepxuB/zo5t4kiCyZU=">
         <field:input field="quantity" id="c_com_focustech_portfolio_domain_Portfolio_quantity" min="1" required="true" z="WKVKMjfXShNrYp2tCyNKtj3ruME="/>
         <field:input field="ticker" id="c_com_focustech_portfolio_domain_Portfolio_ticker" required="true" z="n1AuHDJVNTuk+wbMnI/8pUx8YZA="/>
-        <field:input field="current_price" id="c_com_focustech_portfolio_domain_Portfolio_current_price" z="AxsmdMw85vXLdO0rIeySb8heT64="/>
-    </form:update>
+            </form:update>
 </div>

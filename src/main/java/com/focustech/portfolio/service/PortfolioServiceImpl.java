@@ -22,8 +22,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	public void savePortfolio(Portfolio portfolio) {
 		portfolio.setTicker(portfolio.getTicker().toUpperCase());
-		double d = getCurrentPrice(portfolio.getTicker());
-		portfolio.setCurrent_price(d);
+
 		portfolio.persist();
 
 	}
@@ -174,4 +173,16 @@ public class PortfolioServiceImpl implements PortfolioService {
 
 	}
 
+	public Portfolio findPortfolio(Long id) {
+
+		Portfolio p = Portfolio.findPortfolio(id);
+		double d = 0;
+		try {
+			 d = getCurrentPrice(p.getTicker());
+		} catch (Exception e) {
+			d = 0;
+		}
+		p.setCurrent_price(d);
+		return p;
+	}
 }
